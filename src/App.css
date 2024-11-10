@@ -1,9 +1,89 @@
 .App {
   text-align: center;
+  height: 100vh;
+}
+
+.h1 {
+  margin-top: 0;
+}
+
+/* Ház építése css-ben. */
+
+.roof {
+  position: absolute; /* Elhelyezzük a ház tetejére */
+  top: -20vh; /* A tető a ház tetejére helyeződik, a magasság növeléséhez is igazítjuk */
+  left: 50%; /* Középre igazítjuk a tetőt */
+  transform: translateX(-50%); /* Középre igazítjuk vízszintesen */
+  width: 55vw; /* A tető szélessége, megegyezik a ház szélességével */
+  height: 30vh; /* A tető magasságának növelése */
+}
+
+.leftSide-roof {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 27.5vw solid transparent; /* Fél szélesség a bal oldalon */
+  border-right: 27.5vw solid transparent; /* Fél szélesség a jobb oldalon */
+}
+
+.leftSide-roof {
+  left: 0; /* Bal oldal */
+  border-bottom: 20vh solid #444444; /* A tető alsó színe, magassághoz igazítva */
+}
+
+
+.house {
+  width: 50vw;
+  height: 60vh;
+  border: 3px solid black;
+  position: absolute;
+  left: 25%;
+  bottom: 0;
+  background-color: rgb(255, 248, 220);
+  background-color: rgb(250, 240, 230);
+  background-color: rgb(255, 240, 245);
+}
+
+.window {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  width: 200px;
+  height: 150px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgb(178, 34, 34);
+}
+
+.door {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid black;
+  width: 10vw;
+  height: 25vh;
+  background-color: rgb(178, 34, 34);
+}
+
+.doorknob {
+  position: absolute;
+  bottom: 50%;
+  left: 5%;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  transform: translateY(50%);
 }
 
 .form-name {
-  margin: 20px auto;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  /* margin: 20px auto; */
   background-color: rgb(178, 34, 34);
   border: 3px solid black;
   border-radius: 10px;
@@ -16,7 +96,9 @@
   box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
-.form-name_input, .form-name_input:active, .form-name_input:focus {
+.form-name_input,
+.form-name_input:active,
+.form-name_input:focus {
   padding: 5px;
   border: none;
   outline: none;
@@ -48,11 +130,14 @@
   margin: 0 auto;
   background-color: #c2fbd7;
   border-radius: 100px;
-  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
+    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
+    rgba(44, 187, 99, 0.15) 0 16px 32px;
   color: green;
   cursor: pointer;
   display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
   padding: 3px;
   text-align: center;
   text-decoration: none;
@@ -65,6 +150,9 @@
 }
 
 .form-name_btn:hover {
-  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
+    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
+    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
+    rgba(44, 187, 99, 0.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }

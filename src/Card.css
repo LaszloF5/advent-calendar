@@ -6,11 +6,12 @@
     width: 200px;
     height: 300px;
     border: 3px solid black;
-    margin: 20px 90px;
+    margin: 25px 150px;
     transform-origin: left;
     transition: transform 0.6s ease;
     perspective: 1000px;
     background-color: rgba(255, 0, 0, .5);
+    padding: 5px;
 }
 
 .card::before {
