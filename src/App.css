@@ -14,7 +14,7 @@
   top: -20vh; /* A tető a ház tetejére helyeződik, a magasság növeléséhez is igazítjuk */
   left: 50%; /* Középre igazítjuk a tetőt */
   transform: translateX(-50%); /* Középre igazítjuk vízszintesen */
-  width: 55vw; /* A tető szélessége, megegyezik a ház szélességével */
+  width: 36vw; /* A tető szélessége, megegyezik a ház szélességével */
   height: 30vh; /* A tető magasságának növelése */
 }
 
@@ -23,8 +23,8 @@
   top: 0;
   width: 0;
   height: 0;
-  border-left: 27.5vw solid transparent; /* Fél szélesség a bal oldalon */
-  border-right: 27.5vw solid transparent; /* Fél szélesség a jobb oldalon */
+  border-left: 18vw solid transparent; /* Fél szélesség a bal oldalon */
+  border-right: 18vw solid transparent; /* Fél szélesség a jobb oldalon */
 }
 
 .leftSide-roof {
@@ -34,55 +34,36 @@
 
 
 .house {
-  width: 50vw;
+  width: 30vw;
   height: 60vh;
   border: 3px solid black;
   position: absolute;
-  left: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
   background-color: rgb(255, 248, 220);
   background-color: rgb(250, 240, 230);
   background-color: rgb(255, 240, 245);
 }
 
-.window {
-  position: absolute;
-  top: 100px;
-  right: 100px;
-  width: 200px;
-  height: 150px;
-  border: 3px solid black;
-  border-radius: 10px;
-  padding: 5px;
-  background-color: rgb(178, 34, 34);
-}
 
 .door {
+  z-index: -1;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   border: 3px solid black;
-  width: 10vw;
+  width: 160px;
   height: 25vh;
   background-color: rgb(178, 34, 34);
-}
-
-.doorknob {
-  position: absolute;
-  bottom: 50%;
-  left: 5%;
-  width: 20px;
-  height: 20px;
-  background-color: black;
-  border-radius: 50%;
-  transform: translateY(50%);
 }
 
 .form-name {
   position: absolute;
   top: 100px;
-  left: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   /* margin: 20px auto; */
   background-color: rgb(178, 34, 34);
   border: 3px solid black;
@@ -126,6 +107,10 @@
 }
 
 .form-name_btn {
+  z-index: 10;
+  position: fixed;
+  left: 30px;
+  bottom: -170px;
   width: 50%;
   margin: 0 auto;
   background-color: #c2fbd7;

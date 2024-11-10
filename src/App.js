@@ -106,8 +106,8 @@ export default function App() {
             placeholder="ex.: James" />
         <button type="submit" className="form-name_btn">Submit</button>
       </form>
-      <div className="window"></div>
-      <div className="door"><span className="doorknob"></span></div>
+      {/* <div className="window"></div> */}
+      <div className="door"></div>
       </div>) :
       (<div className="container">
         {item.map((value, index) => (
