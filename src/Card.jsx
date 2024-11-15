@@ -2,8 +2,6 @@ import React from "react";
 import './Card.css';
 
 export default function Card({ value, index, isBack, onClick, date, name, story, imgClass }) {
-    // const waitingText = `nap van még karácsonyig date: ${date}`;
-    // const finalText = `Boldog karácsonyt ${name}!`;
 
     return (
         <div className={`card ${isBack ? 'flip' : ''} ${imgClass}`} onClick={onClick}>
