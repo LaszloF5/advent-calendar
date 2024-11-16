@@ -118,12 +118,12 @@ export default function App() {
   const handleName = (e) => {
     e.preventDefault();
     localStorage.removeItem("name");
-    setName(tempName);
-    localStorage.setItem("name", JSON.stringify(tempName));
+    const validName = tempName.trim();
+    setName(validName);
+    localStorage.setItem("name", JSON.stringify(validName));
     setNeedName(false);
     setTempName("");
     setVisibleChangeNameForm(false);
-    console.log("Aktuális név: ", JSON.parse(localStorage.getItem("name"))); //Később törölni.
   };
 
   const handleClick = (index, date) => {
@@ -155,58 +155,39 @@ export default function App() {
       setName(yourName);
       setNeedName(false);
     } else {
-      // alert('Add meg a neved!');
       setNeedName(true);
     }
   }, []);
 
-  const handleTestName = () => {
-    localStorage.removeItem("name");
-  };
+  // const handleTestName = () => {
+  //   localStorage.removeItem("name");
+  // };
 
   return (
     <div className="App">
-      <header className="header">
-        <h1 className="h1">Advent calendar</h1>
-        {name.length === 0 ? null : (
-          <button onClick={toggleChangeName} className="change-name-btn">
-            Change name
-          </button>
-        )}
-        {visibleChangeNameForm ? (
-          <form onSubmit={handleName} className="form-change-name">
-            <label htmlFor="changeName" className="form-change-name_label">
-              Change name
-            </label>
-            <input
-              className="form-change-name_input"
-              type="text"
-              id="changeName"
-              value={tempName}
-              onChange={(e) => setTempName(e.target.value)}
-              required
-              placeholder="ex.: Ella"
-            />
-            <button type="submit" className="form-change-name_btn">
-              Submit
-            </button>
-          </form>
-        ) : null}
-      </header>
-      <button onClick={handleTestName}>Delete all names</button>
-      {needName ? (
+      <h1 className="h1">Advent Calendar</h1>
+
+      {name.length > 0 && (
+        <button onClick={toggleChangeName} className="change-name-btn">
+          Change name
+        </button>
+      )}
+
+      {visibleChangeNameForm ? (
         <>
-          <img className="santaHat" src="/santa-hat.png" alt="santa hat" />
-          <form onSubmit={handleName} className="form-name">
-            <label className="form-name_label" htmlFor="nameId">
+          <img className="santaHat" src="/santa-hat.png" alt="Santa hat" />
+          <form onSubmit={handleName} className="form-name" autoComplete="off">
+            <label className="form-name_label" htmlFor="changeNameId">
               Name:
             </label>
             <input
               className="form-name_input"
               type="text"
-              id="nameId"
+              id="changeNameId"
               value={tempName}
-              onChange={(e) => setTempName(e.target.value)}
+              onChange={(e) =>
+                {const cleanedData =  e.target.value.trimStart();
+                setTempName(cleanedData)}}
               required
               placeholder="ex.: James"
             />
@@ -217,33 +198,61 @@ export default function App() {
         </>
       ) : (
         <>
-          <div className={`snowflakes`} aria-hidden="true">
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-            <div className="snowflake">&#10052;</div>
-          </div>
-          <div className="container">
-            {item.map((value, index) => (
-              <Card
-                key={index}
-                index={index}
-                date={index + 1}
-                value={value}
-                isBack={isBack[index]}
-                name={name}
-                story={story}
-                imgClass={imgClasses[index % imgClasses.length]}
-                onClick={() => handleClick(index, index + 1)}
-              />
-            ))}
-          </div>
+          {/* <button onClick={handleTestName}>Delete all names</button> /Tesztelés miatt marad./*/}
+
+          {needName ? (
+            <>
+              <img className="santaHat" src="/santa-hat.png" alt="Santa hat" />
+              <form
+                onSubmit={handleName}
+                className="form-name"
+                autoComplete="off"
+              >
+                <label className="form-name_label" htmlFor="nameId">
+                  Name:
+                </label>
+                <input
+                  className="form-name_input"
+                  type="text"
+                  id="nameId"
+                  value={tempName}
+                  onChange={(e) =>
+                    {const cleanedData =  e.target.value.trimStart();
+                    setTempName(cleanedData)}}
+                  required
+                  placeholder="ex.: James"
+                />
+                <button type="submit" className="form-name_btn">
+                  Submit
+                </button>
+              </form>
+            </>
+          ) : (
+            <>
+              <div className="snowflakes" aria-hidden="true">
+                {Array.from({ length: 10 }).map((_, index) => (
+                  <div key={index} className="snowflake">
+                    &#10052;
+                  </div>
+                ))}
+              </div>
+              <div className="container">
+                {item.map((value, index) => (
+                  <Card
+                    key={index}
+                    index={index}
+                    date={index + 1}
+                    value={value}
+                    isBack={isBack[index]}
+                    name={name}
+                    story={story}
+                    imgClass={imgClasses[index % imgClasses.length]}
+                    onClick={() => handleClick(index, index + 1)}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </>
       )}
     </div>
