@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import "./App.css";
+import santaHat from './santa-hat.png';
 
 export default function App() {
   const [name, setName] = useState("");
@@ -30,7 +31,7 @@ export default function App() {
       "4. nap \nJózsef álma \nJózsef elhatározza, hogy titokban elbocsátja Máriát, miután megtudja, hogy gyermeket vár. Azonban egy angyal megjelenik neki álmában, és közli vele, hogy a gyermek a Szentlélektől fogant, így József végül magához veszi Máriát.",
     ],
     [
-      "5. nap \nA népszámlálás meghirdetése \nCaesar Augustus népszámlálást hirdet, így mindenki visszatér szülővárosába. József és Mária Betlehembe indulnak, mivel József Dávid házából származik.",
+      "5. nap \nA népszámlálás meghirdetése \nAugustus Caesar népszámlálást hirdet, így mindenki visszatér szülővárosába. József és Mária Betlehembe indulnak, mivel József Dávid házából származik.",
     ],
     [
       "6. nap \nJózsef és Mária megérkeznek Betlehembe \nHosszú út után Betlehembe érnek, ahol nincs számukra hely a szálláson, így egy egyszerű istállóban keresnek menedéket.",
@@ -101,13 +102,13 @@ export default function App() {
     const getDate = async () => {
       try {
         const response = await fetch(
-          "http://api.timezonedb.com/v2.1/get-time-zone?key=A3P9B4RA1JC2&format=json&by=position&lat=47.4979&lng=19.0402"
+          "https://api.timezonedb.com/v2.1/get-time-zone?key=A3P9B4RA1JC2&format=json&by=position&lat=47.4979&lng=19.0402"
         );
         if (!response.ok) {
           throw new Error("Hiba a kéréssel!");
         }
         const date = await response.json();
-        setApiDate(date.formatted.replaceAll('-', ' ').slice(0, 10) );
+        setApiDate(date.formatted.replaceAll("-", " ").slice(0, 10));
       } catch (error) {
         console.error("Hiba: ", error);
       }
@@ -128,6 +129,8 @@ export default function App() {
 
   const handleClick = (index, date) => {
     if (date <= Number(apiDate.slice(-2))) {
+      console.log('Date: ', date);
+      console.log('Api date: ', Number(apiDate.slice(-2)));
       setIsBack((prevState) => {
         const newState = prevState.map((state, i) =>
           i === index ? !state : state
@@ -175,7 +178,7 @@ export default function App() {
 
       {visibleChangeNameForm ? (
         <>
-          <img className="santaHat" src="/santa-hat.png" alt="Santa hat" />
+          <img className="santaHat" src={santaHat} alt="Santa hat" />
           <form onSubmit={handleName} className="form-name" autoComplete="off">
             <label className="form-name_label" htmlFor="changeNameId">
               Name:
@@ -185,9 +188,10 @@ export default function App() {
               type="text"
               id="changeNameId"
               value={tempName}
-              onChange={(e) =>
-                {const cleanedData =  e.target.value.trimStart();
-                setTempName(cleanedData)}}
+              onChange={(e) => {
+                const cleanedData = e.target.value.trimStart();
+                setTempName(cleanedData);
+              }}
               required
               placeholder="ex.: James"
             />
@@ -198,11 +202,11 @@ export default function App() {
         </>
       ) : (
         <>
-          <button onClick={handleTestName}>Delete all names</button> /Tesztelés miatt marad./
-
+          <button onClick={handleTestName}>Delete all names</button> /Tesztelés
+          miatt marad./
           {needName ? (
             <>
-              <img className="santaHat" src="/santa-hat.png" alt="Santa hat" />
+              <img className="santaHat" src={santaHat} alt="Santa hat" />
               <form
                 onSubmit={handleName}
                 className="form-name"
@@ -216,9 +220,10 @@ export default function App() {
                   type="text"
                   id="nameId"
                   value={tempName}
-                  onChange={(e) =>
-                    {const cleanedData =  e.target.value.trimStart();
-                    setTempName(cleanedData)}}
+                  onChange={(e) => {
+                    const cleanedData = e.target.value.trimStart();
+                    setTempName(cleanedData);
+                  }}
                   required
                   placeholder="ex.: James"
                 />

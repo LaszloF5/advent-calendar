@@ -1,5 +1,4 @@
 import React from "react";
-import chroma from "chroma-js";
 import './Card.css';
 
 export default function Card({ value, index, isBack, onClick, date, name, story, imgClass }) {
