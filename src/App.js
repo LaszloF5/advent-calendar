@@ -159,9 +159,9 @@ export default function App() {
     }
   }, []);
 
-  // const handleTestName = () => {
-  //   localStorage.removeItem("name");
-  // };
+  const handleTestName = () => {
+    localStorage.removeItem("name");
+  };
 
   return (
     <div className="App">
@@ -198,7 +198,7 @@ export default function App() {
         </>
       ) : (
         <>
-          {/* <button onClick={handleTestName}>Delete all names</button> /Tesztelés miatt marad./*/}
+          <button onClick={handleTestName}>Delete all names</button> /Tesztelés miatt marad./
 
           {needName ? (
             <>

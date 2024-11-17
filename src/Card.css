@@ -16,7 +16,9 @@
 }
 
 .card::before {
-  content: "";
+  content: var(--content-text);
+  text-align: end;
+  font-size: 35px;
   position: absolute;
   top: 0;
   left: 0;
@@ -32,12 +34,15 @@
 
 .card.img1::before {
     background-image: url(../public/cover1.webp);
+    color: white;
 }
 .card.img2::before {
     background-image: url(../public/cover2.webp);
+    color: white;
 }
 .card.img3::before {
     background-image: url(../public/cover3.webp);
+    color: black;
 }
 .card.img4::before {
     background-image: url(../public/cover4.webp);
@@ -47,11 +52,13 @@
 }
 .card.img6::before {
     background-image: url(../public/cover6.webp);
+    color: white;
 }
 
 
 .card.flip::before {
   transform: rotateY(-140deg);
+  content: '';
 }
 
 .card-content {
