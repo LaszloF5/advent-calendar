@@ -2,7 +2,7 @@
   "name": "advent-calendar",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://LaszloF5.github.io/adventi-kalend%C3%A1rium",
+  "homepage": "http://LaszloF5.github.io/advent-calendar",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
