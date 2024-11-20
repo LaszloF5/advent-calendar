@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import "./App.css";
-import santaHat from './santa-hat.png';
+import santaHat from "./santa-hat.png";
 
 export default function App() {
   const [name, setName] = useState("");
@@ -129,8 +129,6 @@ export default function App() {
 
   const handleClick = (index, date) => {
     if (date <= Number(apiDate.slice(-2))) {
-      console.log('Date: ', date);
-      console.log('Api date: ', Number(apiDate.slice(-2)));
       setIsBack((prevState) => {
         const newState = prevState.map((state, i) =>
           i === index ? !state : state
@@ -162,28 +160,44 @@ export default function App() {
     }
   }, []);
 
-  const handleTestName = () => {
+  const handleDeleteName = () => {
     localStorage.removeItem("name");
+    setIsBack((prevState) => {
+      const newState = prevState.map((state, i) => {
+        return state === true ? false : state;
+      });
+      localStorage.setItem("cards", JSON.stringify(newState));
+      setNeedName(true);
+      setName("");
+      return newState;
+    });
   };
 
   return (
     <div className="App">
-      <h1 className="h1">Advent Calendar</h1>
+      <header className="header">
+        <h1 className="h1">Adventi kalendárium</h1>
 
-      {name.length > 0 && (
-        <button onClick={toggleChangeName} className="change-name-btn">
-          Change name
-        </button>
-      )}
-
+        {name.length > 0 && (
+          <div className="btn-container">
+            <button className="delete-name-btn" onClick={handleDeleteName}>
+              Név törlése
+            </button>
+            <button onClick={toggleChangeName} className="change-name-btn">
+              Név módosítása
+            </button>
+          </div>
+        )}
+      </header>
       {visibleChangeNameForm ? (
         <>
           <img className="santaHat" src={santaHat} alt="Santa hat" />
           <form onSubmit={handleName} className="form-name" autoComplete="off">
             <label className="form-name_label" htmlFor="changeNameId">
-              Name:
+              Név:
             </label>
             <input
+              autoFocus
               className="form-name_input"
               type="text"
               id="changeNameId"
@@ -193,17 +207,15 @@ export default function App() {
                 setTempName(cleanedData);
               }}
               required
-              placeholder="ex.: James"
+              placeholder="pl.: Ádám"
             />
             <button type="submit" className="form-name_btn">
-              Submit
+              Küldés
             </button>
           </form>
         </>
       ) : (
         <>
-          <button onClick={handleTestName}>Delete all names</button> /Tesztelés
-          miatt marad./
           {needName ? (
             <>
               <img className="santaHat" src={santaHat} alt="Santa hat" />
@@ -213,9 +225,10 @@ export default function App() {
                 autoComplete="off"
               >
                 <label className="form-name_label" htmlFor="nameId">
-                  Name:
+                  Név:
                 </label>
                 <input
+                  autoFocus
                   className="form-name_input"
                   type="text"
                   id="nameId"
@@ -225,10 +238,10 @@ export default function App() {
                     setTempName(cleanedData);
                   }}
                   required
-                  placeholder="ex.: James"
+                  placeholder="pl.: Éva"
                 />
                 <button type="submit" className="form-name_btn">
-                  Submit
+                  Küldés
                 </button>
               </form>
             </>
