@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/advent-calendar/static/css/main.6db866c2.css",
-    "main.js": "/advent-calendar/static/js/main.d6503583.js",
-    "static/js/453.caa0a741.chunk.js": "/advent-calendar/static/js/453.caa0a741.chunk.js",
-    "static/media/cover1.webp": "/advent-calendar/static/media/cover1.a43cf911e63db6b04077.webp",
-    "static/media/cover2.webp": "/advent-calendar/static/media/cover2.a06325ad9c0923547134.webp",
-    "static/media/cover6.webp": "/advent-calendar/static/media/cover6.ef868f1b2c55bcc49f1f.webp",
-    "static/media/cover3.webp": "/advent-calendar/static/media/cover3.d334b9da0135b3e444e8.webp",
-    "static/media/cover5.webp": "/advent-calendar/static/media/cover5.7fc6661b0f0da15e2e51.webp",
-    "static/media/cover4.webp": "/advent-calendar/static/media/cover4.355afeeed9388f4bda41.webp",
-    "static/media/santa-hat.png": "/advent-calendar/static/media/santa-hat.7110136cbe6fbc29f6b1.png",
-    "index.html": "/advent-calendar/index.html",
-    "main.6db866c2.css.map": "/advent-calendar/static/css/main.6db866c2.css.map",
-    "main.d6503583.js.map": "/advent-calendar/static/js/main.d6503583.js.map",
-    "453.caa0a741.chunk.js.map": "/advent-calendar/static/js/453.caa0a741.chunk.js.map"
+    "main.css": "/adventi-kalend%C3%A1rium/static/css/main.3fbcc380.css",
+    "main.js": "/adventi-kalend%C3%A1rium/static/js/main.528bdd46.js",
+    "static/js/453.caa0a741.chunk.js": "/adventi-kalend%C3%A1rium/static/js/453.caa0a741.chunk.js",
+    "static/media/cover1.webp": "/adventi-kalend%C3%A1rium/static/media/cover1.a43cf911e63db6b04077.webp",
+    "static/media/cover2.webp": "/adventi-kalend%C3%A1rium/static/media/cover2.a06325ad9c0923547134.webp",
+    "static/media/cover6.webp": "/adventi-kalend%C3%A1rium/static/media/cover6.ef868f1b2c55bcc49f1f.webp",
+    "static/media/cover3.webp": "/adventi-kalend%C3%A1rium/static/media/cover3.d334b9da0135b3e444e8.webp",
+    "static/media/cover5.webp": "/adventi-kalend%C3%A1rium/static/media/cover5.7fc6661b0f0da15e2e51.webp",
+    "static/media/cover4.webp": "/adventi-kalend%C3%A1rium/static/media/cover4.355afeeed9388f4bda41.webp",
+    "static/media/santa-hat.png": "/adventi-kalend%C3%A1rium/static/media/santa-hat.7110136cbe6fbc29f6b1.png",
+    "index.html": "/adventi-kalend%C3%A1rium/index.html",
+    "main.3fbcc380.css.map": "/adventi-kalend%C3%A1rium/static/css/main.3fbcc380.css.map",
+    "main.528bdd46.js.map": "/adventi-kalend%C3%A1rium/static/js/main.528bdd46.js.map",
+    "453.caa0a741.chunk.js.map": "/adventi-kalend%C3%A1rium/static/js/453.caa0a741.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6db866c2.css",
-    "static/js/main.d6503583.js"
+    "static/css/main.3fbcc380.css",
+    "static/js/main.528bdd46.js"
   ]
 }
