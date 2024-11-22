@@ -29,8 +29,13 @@
     rgba(178, 34, 34, 0.15) 0 16px 32px;
 }
 
+.change-story-btn {
+  background-color: darkblue;
+}
+
 .change-name-btn,
-.delete-name-btn {
+.delete-name-btn,
+.change-story-btn {
   position: static;
   width: 130px;
   height: 35px;
@@ -76,6 +81,15 @@
   z-index: 2;
 }
 
+.santaHat2 {
+  width: 150px;
+  transform: rotate(30deg);
+  position: fixed;
+  top: 29vh;
+  left: 52vw;
+  z-index: 2;
+}
+
 .form-name {
   position: absolute;
   top: 50%;
@@ -85,12 +99,16 @@
   border: 3px solid black;
   border-radius: 10px;
   width: 200px;
-  height: 150px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 5px;
   box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modify-name {
+  height: 150px;
 }
 
 .form-name_label,
@@ -118,12 +136,9 @@
   opacity: 0.75;
 }
 
-.container {
-  width: 90vw;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.white-p,
+.white-label {
+  color: white;
 }
 
 .form-name_btn,
@@ -157,6 +172,14 @@
     rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
     rgba(44, 187, 99, 0.25) 0 16px 32px;
   transform: scale(1.05) rotate(5deg);
+}
+
+.container {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Snow effect */
@@ -248,11 +271,16 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1170px) {
   .header {
     height: auto;
     display: flex;
     flex-direction: column;
+  }
+  .delete-name-btn,
+  .change-name-btn,
+  .change-story-btn {
+    margin: 5px;
   }
   .btn-container {
     position: static;
@@ -280,67 +308,78 @@
 /*Santa hat media queries*/
 
 @media (max-width: 1262px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     left: 53vw;
   }
 }
 
 @media (max-width: 992px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     left: 54vw;
   }
 }
 
 @media (max-width: 643px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     left: 55vw;
   }
 }
 
 @media (max-width: 447px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     left: 56vw;
   }
 }
 
 @media (max-height: 825px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     top: 31.5vh;
   }
 }
 
 @media (max-height: 755px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     top: 30vh;
   }
 }
 
 @media (max-height: 690px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     top: 28vh;
   }
 }
 
 @media (max-height: 630px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     top: 26vh;
   }
 }
 
 @media (max-height: 566px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     top: 24vh;
   }
 }
 
 @media (max-height: 515px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     top: 22vh;
   }
 }
 
 @media (max-height: 490px) {
-  .santaHat {
+  .santaHat,
+  .santaHat2 {
     top: 20vh;
   }
 }

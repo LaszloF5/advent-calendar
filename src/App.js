@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ScandinavianCard from "./ScandinavianCard";
 import Card from "./Card";
 import "./App.css";
 import santaHat from "./santa-hat.png";
@@ -8,6 +9,7 @@ export default function App() {
   const [tempName, setTempName] = useState("");
   const [needName, setNeedName] = useState(true);
   const [visibleChangeNameForm, setVisibleChangeNameForm] = useState(false);
+  const [selectedStory, setSelectedStory] = useState("");
   const itemNum = 24;
   const item = Array.from(
     { length: itemNum },
@@ -16,8 +18,9 @@ export default function App() {
   const [isBack, setIsBack] = useState(Array(itemNum).fill(false));
 
   const imgClasses = ["img1", "img2", "img3", "img4", "img5", "img6"];
+  const scandinavianImgClasses = ["img1", "img2", "img3"];
 
-  const story = [
+  const story1 = [
     [
       "1. nap \nAngyali híradás Zakariásnak \nAz angyal, Gábriel, megjelenik Zakariásnak a templomban, és közli vele, hogy felesége, Erzsébet, fiút fog szülni, akit Jánosnak kell nevezniük. Ez a gyermek az Úr útját fogja készíteni.",
     ],
@@ -92,6 +95,81 @@ export default function App() {
     ],
   ];
 
+  const story2 = [
+    [
+      "1. nap \nA hosszú éjszakák kezdete \nA világot a tél leghosszabb éjszakája borítja be. A skandinávok Yule-t ünneplik, az év azon időszakát, amikor az istenek és emberek közötti határok elmosódnak. Egy fiatal harcos, Leif, a tűz mellett hallgatja a régiek történeteit a Yule-éjszaka csodáiról és veszélyeiről.",
+    ],
+    [
+      "2. nap \nA látogató érkezése \nEgy titokzatos idegen, Odin, álruhában érkezik Leif falujába. Azt mondja, fontos küldetése van, és útitársat keres, aki segít neki visszaszerezni valamit, amit elloptak tőle.",
+    ],
+    [
+      "3. nap \nA veszteség története \nOdin elmeséli, hogy Loki, a csalás istene, ellopta a Yule Csillagát, egy mágikus tárgyat, amely a tél közepén fényt hoz a világba. Nélküle az emberek és az istenek is elveszhetnek a sötétségben.",
+    ],
+    [
+      "4. nap \nAz indulás \nLeif elfogadja a kihívást, és útra kel Odinnal. Elhagyják a falut, és a hóval borított erdő mélyébe merészkednek.",
+    ],
+    [
+      "5. nap \nA trollok erdeje \nÚtjuk során belebotlanak egy trollcsaládba, akik nem örülnek a betolakodóknak. Leif bátorsága és Odin bölcsessége segít nekik legyőzni a trollokat anélkül, hogy harcolniuk kellene.",
+    ],
+    [
+      "6. nap \nA varázsló figyelmeztetése \nEgy magányos varázsló kunyhójában keresnek menedéket. A varázsló elmondja, hogy Loki a Kilenc Világot járja, és csapdák várnak rájuk mindenhol.",
+    ],
+    [
+      "7. nap \nA bifrösti híd titka \nOdin elvezeti Leifet a Bifröstre, a szivárványhídra, amely az istenek birodalmába vezet. A híd azonban eltűnni látszik, és csak a Yule Csillag fénye hozhatja vissza.",
+    ],
+    [
+      "8. nap \nA hóóriás barlangja \nEgy barlangban hatalmas hóóriással találkoznak. A lény haraggal fordul feléjük, de Odin egy ravasz trükkel meggyőzi, hogy engedje tovább őket.",
+    ],
+    [
+      "9. nap \nFreya ajándéka \nAz istennő, Freya megjelenik előttük, és egy varázstárgyat ad Leifnek: egy csillogó karkötőt, amely megvédi őket Loki illúzióitól.",
+    ],
+    [
+      "10. nap \nA jégmezők átka \nA csapat egy végtelen jégmezőn kel át, ahol Leif kezd elveszni a reménytelenségben. Odin történeteket mesél neki, hogy bátorítsa.",
+    ],
+    [
+      "11. nap \nA farkasok árnyéka \nSköll és Hati, a napot és a holdat üldöző farkasok tűnnek fel az égen, és veszélybe sodorják őket. Leifnek sikerül elterelnie a figyelmüket.",
+    ],
+    [
+      "12. nap \nLoki nyomai \nVégre rátalálnak Loki nyomaira egy elhagyott templomban. Odin biztos benne, hogy közel járnak.",
+    ],
+    [
+      "13. nap \nA jéghegy titka \nEgy hatalmas jéghegy belsejében Loki titkos rejtekhelyét találják, de a hely őrzője, egy ősi jégsárkány, az útjukat állja.",
+    ],
+    [
+      "14. nap \nA sárkány legyőzése \nLeif és Odin együttműködnek, hogy legyőzzék a jégsárkányt. Végül nem erővel, hanem Leif bátorságával és együttérzésével sikerül.",
+    ],
+    [
+      "15. nap \nLoki csapdája \nAmikor belépnek a jéghegy belsejébe, Loki illúziókkal támad rájuk. Freya ajándékának köszönhetően sikerül átlátniuk a trükkjein.",
+    ],
+    [
+      "16. nap \nA Yule Csillag megpillantása \nMegtalálják a Yule Csillagot, de az elérhetetlennek tűnik egy varázslatos üvegszférában.",
+    ],
+    [
+      "17. nap \nLoki feltűnik \nLoki személyesen is megjelenik, és csábító ajánlatot tesz Leifnek: ha csatlakozik hozzá, hatalmat ígér neki.",
+    ],
+    [
+      "18. nap \nLeif választása \nLeif nemet mond Loki ajánlatára, és kiáll a fény és az igazság mellett.",
+    ],
+    [
+      "19. nap \nA varázslat megszegése \nOdin mágiájával és Leif erejével sikerül feltörni az üvegszférát, és visszaszerezni a Yule Csillagot.",
+    ],
+    [
+      "20. nap \nA hazaút kezdete \nA Yule Csillag fényével az út sokkal könnyebbnek tűnik, de Loki bosszút esküszik.",
+    ],
+    [
+      "21. nap \nAz utolsó akadály \nLoki utolsó csapdája egy hatalmas jégvihar formájában jelenik meg. Leif önfeláldozása segíti Odint a továbbjutásban.",
+    ],
+    [
+      "22. nap \nA fény visszatérése \nA faluban a Yule Csillag fénye újra ragyogni kezd, és a hosszú éjszakák megszűnnek.",
+    ],
+    [
+      "23. nap \nAz istenek ajándéka \nOdin megjutalmazza Leifet a bátorságáért, és Freya egy különleges áldással illeti.",
+    ],
+    [
+      `24. nap \nA Yule-éjszaka ünnepe \nA falubeliek együtt ünneplik a Yule-t, immár a fény és a melegség örömében. Leif története példaképpé válik mindenki számára. \nBoldog Yule-t ${name}`,
+    ],
+  ];
+
   const [apiDate, setApiDate] = useState("");
 
   const toggleChangeName = () => {
@@ -122,10 +200,32 @@ export default function App() {
     const validName = tempName.trim();
     setName(validName);
     localStorage.setItem("name", JSON.stringify(validName));
+    localStorage.setItem("story", JSON.stringify(selectedStory));
     setNeedName(false);
     setTempName("");
     setVisibleChangeNameForm(false);
   };
+
+  useEffect(() => {
+    const openedCards = JSON.parse(localStorage.getItem("cards"));
+    if (openedCards) {
+      setIsBack(openedCards);
+    }
+  }, []);
+
+  useEffect(() => {
+    const yourName = JSON.parse(localStorage.getItem("name"));
+    const yourtStory = JSON.parse(localStorage.getItem("story"));
+    if (yourName) {
+      setName(yourName);
+      setNeedName(false);
+    } else {
+      setNeedName(true);
+    }
+    if (yourtStory) {
+      setSelectedStory(yourtStory);
+    }
+  }, []);
 
   const handleClick = (index, date) => {
     if (date <= Number(apiDate.slice(-2))) {
@@ -143,23 +243,6 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    const openedCards = JSON.parse(localStorage.getItem("cards"));
-    if (openedCards) {
-      setIsBack(openedCards);
-    }
-  }, []);
-
-  useEffect(() => {
-    const yourName = JSON.parse(localStorage.getItem("name"));
-    if (yourName) {
-      setName(yourName);
-      setNeedName(false);
-    } else {
-      setNeedName(true);
-    }
-  }, []);
-
   const handleDeleteName = () => {
     localStorage.removeItem("name");
     setIsBack((prevState) => {
@@ -167,10 +250,38 @@ export default function App() {
         return state === true ? false : state;
       });
       localStorage.setItem("cards", JSON.stringify(newState));
+      localStorage.removeItem('story');
       setNeedName(true);
+      setSelectedStory("");
       setName("");
       return newState;
     });
+  };
+
+  const handleChangeStory = () => {
+    if (selectedStory === "scandinavianStory") {
+      setIsBack((prevState) => {
+        const newState = prevState.map((state, i) => {
+          return state === true ? false : state;
+        });
+        localStorage.setItem("cards", JSON.stringify(newState));
+        return newState;
+      });
+      localStorage.removeItem('story');
+      setSelectedStory("christianStory");
+      localStorage.setItem('story', JSON.stringify("christianStory"));
+    } else {
+      setIsBack((prevState) => {
+        const newState = prevState.map((state, i) => {
+          return state === true ? false : state;
+        });
+        localStorage.setItem("cards", JSON.stringify(newState));
+        return newState;
+      });
+      localStorage.removeItem('story');
+      setSelectedStory("scandinavianStory");
+      localStorage.setItem('story', JSON.stringify("scandinavianStory"));
+    }
   };
 
   return (
@@ -180,11 +291,14 @@ export default function App() {
 
         {name.length > 0 && (
           <div className="btn-container">
-            <button className="delete-name-btn" onClick={handleDeleteName}>
+            <button onClick={handleDeleteName} className="delete-name-btn">
               Név törlése
             </button>
             <button onClick={toggleChangeName} className="change-name-btn">
               Név módosítása
+            </button>
+            <button onClick={handleChangeStory} className="change-story-btn">
+              Történetváltás
             </button>
           </div>
         )}
@@ -192,7 +306,11 @@ export default function App() {
       {visibleChangeNameForm ? (
         <>
           <img className="santaHat" src={santaHat} alt="Santa hat" />
-          <form onSubmit={handleName} className="form-name" autoComplete="off">
+          <form
+            onSubmit={handleName}
+            className="form-name modify-name"
+            autoComplete="off"
+          >
             <label className="form-name_label" htmlFor="changeNameId">
               Név:
             </label>
@@ -218,7 +336,7 @@ export default function App() {
         <>
           {needName ? (
             <>
-              <img className="santaHat" src={santaHat} alt="Santa hat" />
+              <img className="santaHat2" src={santaHat} alt="Santa hat" />
               <form
                 onSubmit={handleName}
                 className="form-name"
@@ -238,8 +356,31 @@ export default function App() {
                     setTempName(cleanedData);
                   }}
                   required
-                  placeholder="pl.: Éva"
+                  placeholder="pl.: Zoé"
                 />
+                <p className="white-p">Válassz történetet!</p>
+                <label className="white-label" htmlFor="scandinavianStory">
+                  Skandináv történet
+                  <input
+                    type="radio"
+                    id="scandinavianStory"
+                    name="story"
+                    value="scandinavianStory"
+                    onChange={(e) => setSelectedStory(e.target.value)}
+                    required
+                  />
+                </label>
+                <label className="white-label" htmlFor="christianStory">
+                  Keresztény történet
+                  <input
+                    type="radio"
+                    id="christianStory"
+                    name="story"
+                    value="christianStory"
+                    onChange={(e) => setSelectedStory(e.target.value)}
+                    required
+                  />
+                </label>
                 <button type="submit" className="form-name_btn">
                   Küldés
                 </button>
@@ -255,19 +396,37 @@ export default function App() {
                 ))}
               </div>
               <div className="container">
-                {item.map((value, index) => (
-                  <Card
-                    key={index}
-                    index={index}
-                    date={index + 1}
-                    value={value}
-                    isBack={isBack[index]}
-                    name={name}
-                    story={story}
-                    imgClass={imgClasses[index % imgClasses.length]}
-                    onClick={() => handleClick(index, index + 1)}
-                  />
-                ))}
+                {item.map((value, index) =>
+                  selectedStory === "scandinavianStory" ? (
+                    <ScandinavianCard
+                      key={index}
+                      index={index}
+                      date={index + 1}
+                      value={value}
+                      isBack={isBack[index]}
+                      name={name}
+                      story2={story2}
+                      scandinavianImgClass={
+                        scandinavianImgClasses[
+                          index % scandinavianImgClasses.length
+                        ]
+                      }
+                      onClick={() => handleClick(index, index + 1)}
+                    />
+                  ) : (
+                    <Card
+                      key={index}
+                      index={index}
+                      date={index + 1}
+                      value={value}
+                      isBack={isBack[index]}
+                      name={name}
+                      story1={story1}
+                      imgClass={imgClasses[index % imgClasses.length]}
+                      onClick={() => handleClick(index, index + 1)}
+                    />
+                  )
+                )}
               </div>
             </>
           )}
