@@ -11,8 +11,10 @@ export default function App() {
   const [isBack, setIsBack] = useState(Array(itemNum).fill(false));
   const currDay = Number(new Date().toISOString().split("T")[0].slice(-2));
 
+  const imgClasses = ['img1', 'img2', 'img3', 'img4', 'img5', 'img6'];
+
   const story = [
-    ['1. nap \nAngyali híradás Zakariásnak \nAz angyal, Gábriel, megjelenik Zakariásnak a templomban, és közli vele, hogy felesége, Erzsébet, fiút fog szülni, akit Jánosnak kell nevezniük. Ez a gyermek az Úr útját fogja készíteni'],
+    ['1. nap \nAngyali híradás Zakariásnak \nAz angyal, Gábriel, megjelenik Zakariásnak a templomban, és közli vele, hogy felesége, Erzsébet, fiút fog szülni, akit Jánosnak kell nevezniük. Ez a gyermek az Úr útját fogja készíteni.'],
     ['2. nap \nAngyali híradás Máriának \nGábriel megjelenik Máriának, és elmondja neki, hogy fiút fog szülni, akit Jézusnak neveznek majd, és hogy Isten Fia lesz. Mária alázattal elfogadja az angyali hírt.'],
     ['3. nap \nMária látogatása Erzsébetnél \nMária meglátogatja Erzsébetet, és amikor Erzsébet meghallja Mária köszöntését, a méhében lévő gyermek megmozdul, Erzsébet pedig áldást mond Máriára.'],
     ['4. nap \nJózsef álma \nJózsef elhatározza, hogy titokban elbocsátja Máriát, miután megtudja, hogy gyermeket vár. Azonban egy angyal megjelenik neki álmában, és közli vele, hogy a gyermek a Szentlélektől fogant, így József végül magához veszi Máriát.'],
@@ -22,7 +24,7 @@ export default function App() {
     ['8. nap \nAngyalok jelennek meg a pásztoroknak \nKinn a mezőn pásztorok őrzik a nyájat, amikor megjelenik nekik egy angyal, és elmondja a jó hírt: "Ma megszületett a Megváltó, aki az Úr Krisztus."'],
     ['9. nap \nAz angyalok éneke \nHirtelen egy mennyei sereg jelenik meg az angyallal, és dicséretet zengenek: "Dicsőség a magasságban Istennek, és békesség a földön az embereknek."'],
     ['10. nap \nA pásztorok útnak indulnak \nA pásztorok Betlehembe sietnek, hogy lássák a gyermek Jézust. Rátalálnak Máriára, Józsefre és a jászolban fekvő gyermekre.'],
-    ['11. nap \nA pásztorok hírül adják a történteket', 'Miután találkoztak Jézussal, a pásztorok mindenfelé elmondják, amit láttak és hallottak. Az emberek csodálkozva hallgatják őket.'],
+    ['11. nap \nA pásztorok hírül adják a történteket, \nMiután találkoztak Jézussal, a pásztorok mindenfelé elmondják, amit láttak és hallottak. Az emberek csodálkozva hallgatják őket.'],
     ['12. nap \nMária szívében megőrzi a történteket \nMária elmélyedve, szívében megőrzi és fontolgatja mindazt, amit látott és hallott az angyalokról és a pásztorokról.'],
     ['13. nap \nJézus névadása \nNyolc nap elteltével elnevezik a gyermeket Jézusnak, ahogyan az angyal meghagyta Máriának.'],
     ['14. nap \nA bölcsek elindulnak kelet felől \nKeleten bölcsek látják meg a különleges csillagot, amely egy király születését jelzi, és útnak indulnak, hogy köszöntsék őt.'],
@@ -34,9 +36,9 @@ export default function App() {
     ['20. nap \nA bölcsek hódolata és ajándékai \nA bölcsek belépnek, és hódolnak Jézus előtt, majd ajándékokat adnak: aranyat, tömjént és mirhát.'],
     ['21. nap \nFigyelmeztetés álomban \nÁlomban figyelmeztetést kapnak, hogy ne térjenek vissza Heródeshez, így más úton térnek haza.'],
     ['22. nap \nAz Úr figyelmezteti Józsefet \nEgy angyal álmában figyelmezteti Józsefet, hogy meneküljön Egyiptomba, mert Heródes a gyermek életére tör.'],
-    ['23. nap \nA menekülés Egyiptomba \nJózsef azonnal útra kel Máriával és Jézussal, és Egyiptomba menekülnek, hogy biztonságban legyenek.'],
+    ['23. nap \nMenekülés Egyiptomba \nJózsef azonnal útra kel Máriával és Jézussal, és Egyiptomba menekülnek, hogy biztonságban legyenek.'],
     [`24. nap \nJézus születésének örömhíre \nA hírek terjednek Jézus születéséről, aki később a világ Megváltója lesz. Az emberek reménnyel és örömmel várják az ígéretes jövőt. \nÁldott, békés, boldog karácsonyt ${name}`],
-  ];
+  ]
   
 
   const handleName = (e) => {
@@ -106,7 +108,6 @@ export default function App() {
             placeholder="ex.: James" />
         <button type="submit" className="form-name_btn">Submit</button>
       </form>
-      {/* <div className="window"></div> */}
       <div className="door"></div>
       </div>) :
       (<div className="container">
@@ -119,6 +120,7 @@ export default function App() {
             isBack={isBack[index]}
             name={name}
             story={story}
+            imgClass={imgClasses[index % imgClasses.length]}
             onClick={() => handleClick(index, index + 1)}
           />
         ))}

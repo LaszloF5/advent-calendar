@@ -1,39 +1,73 @@
 .card {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 300px;
-    border: 3px solid black;
-    margin: 25px 150px;
-    transform-origin: left;
-    transition: transform 0.6s ease;
-    perspective: 1000px;
-    background-color: rgba(255, 0, 0, .5);
-    padding: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 300px;
+  border: 3px solid black;
+  margin: 25px 150px;
+  transform-origin: left;
+  transition: transform 0.6s ease;
+  perspective: 1000px;
+  background-color: rgba(255, 0, 0, 0.5);
+  padding: 5px;
 }
 
 .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(../public/cover.webp);
-    background-size: cover;
-    transform-origin: left;
-    transform: rotateY(0deg);
-    transition: transform 0.6s ease;
-    z-index: 10;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transform-origin: left;
+  transform: rotateY(0deg);
+  transition: transform 0.6s ease;
+  z-index: 10;
 }
 
+.card.img1::before {
+    background-image: url(../public/cover1.webp);
+}
+.card.img2::before {
+    background-image: url(../public/cover2.webp);
+}
+.card.img3::before {
+    background-image: url(../public/cover33.png);
+}
+.card.img4::before {
+    background-image: url(../public/cover4.webp);
+}
+.card.img5::before {
+    background-image: url(../public/cover5.webp);
+}
+.card.img6::before {
+    background-image: url(../public/cover6.webp);
+}
+
+
 .card.flip::before {
-    transform: rotateY(-140deg);
+  transform: rotateY(-140deg);
 }
 
 .card-content {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
+}
+
+
+@media (max-width: 643px) {
+    .card {
+        margin: 30px 0;
+    }
+}
+
+@media (max-width: 430px) {
+    .card {
+        width: 175px;
+        /*Jobb oldalon teljesen a képernyő szélére kell helyezni a kártyákat. Max 2-3px távolság lehet.*/
+        /* font-size: 14px; */
+    }
 }

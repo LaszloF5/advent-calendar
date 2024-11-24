@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   height: 100vh;
+  margin: 0;
 }
 
 .h1 {
@@ -10,12 +11,12 @@
 /* Ház építése css-ben. */
 
 .roof {
-  position: absolute; /* Elhelyezzük a ház tetejére */
-  top: -20vh; /* A tető a ház tetejére helyeződik, a magasság növeléséhez is igazítjuk */
-  left: 50%; /* Középre igazítjuk a tetőt */
-  transform: translateX(-50%); /* Középre igazítjuk vízszintesen */
-  width: 36vw; /* A tető szélessége, megegyezik a ház szélességével */
-  height: 30vh; /* A tető magasságának növelése */
+  position: absolute;
+  top: -20vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36vw;
+  height: 30vh;
 }
 
 .leftSide-roof {
@@ -23,29 +24,29 @@
   top: 0;
   width: 0;
   height: 0;
-  border-left: 18vw solid transparent; /* Fél szélesség a bal oldalon */
-  border-right: 18vw solid transparent; /* Fél szélesség a jobb oldalon */
+  border-left: 18vw solid transparent;
+  border-right: 18vw solid transparent;
 }
 
 .leftSide-roof {
   left: 0; /* Bal oldal */
-  border-bottom: 20vh solid #444444; /* A tető alsó színe, magassághoz igazítva */
+  border-bottom: 20vh solid #B22222; /* A tető alsó színe, magassághoz igazítva */
 }
 
 
 .house {
   width: 30vw;
   height: 60vh;
-  border: 3px solid black;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
-  background-color: rgb(255, 248, 220);
+  /* background-color: rgb(255, 248, 220);
   background-color: rgb(250, 240, 230);
-  background-color: rgb(255, 240, 245);
+  background-color: rgb(255, 240, 245); */
+  background-image: url(../public/brick-wall.jpg);
+  background-size: 30vw;
 }
-
 
 .door {
   z-index: -1;
@@ -61,10 +62,9 @@
 
 .form-name {
   position: absolute;
-  top: 100px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
-  /* margin: 20px auto; */
   background-color: rgb(178, 34, 34);
   border: 3px solid black;
   border-radius: 10px;
@@ -98,6 +98,8 @@
   opacity: 0.75;
 }
 
+/************************************************************************/
+
 .container {
   width: 90vw;
   margin: 0 auto;
@@ -110,7 +112,7 @@
   z-index: 10;
   position: fixed;
   left: 30px;
-  bottom: -170px;
+  bottom: -230px;
   width: 50%;
   margin: 0 auto;
   background-color: #c2fbd7;
@@ -130,8 +132,7 @@
   border: 0;
   font-size: 16px;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  /* touch-action: manipulation; */
 }
 
 .form-name_btn:hover {
@@ -139,5 +140,69 @@
     rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
     rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
     rgba(44, 187, 99, 0.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
+  transform: scale(1.05) rotate(5deg);
+}
+
+
+/*Media queries*/
+
+@media (max-width: 643px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 910px) {
+  .roof {
+      top: -18.8vh;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 820px) {
+  .form-name_btn {
+    bottom: -225px;
+  } 
+  .roof {
+      top: -19vh;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 780px) {
+  .form-name_btn {
+    bottom: -185px;
+  } 
+  .roof {
+      top: -19vh;
+  }
+}
+
+
+@media (min-width: 1024px) and (max-height: 740px) {
+  .form-name_btn {
+    bottom: -145px;
+  } 
+  .roof {
+      top: -19vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .door, .leftSide-roof, .roof {
+    display: none;
+  }
+
+  .house {
+    background-image: none;
+  }
+
+  .form-name_btn {
+    position: static;
+  }
+}
+
+@media (max-width: 643px) {
+  .container {
+    margin-right: 5px;
+  }
 }
