@@ -91,7 +91,7 @@ export default function App() {
       "23. nap \nMenekülés Egyiptomba \nJózsef azonnal útra kel Máriával és Jézussal, és Egyiptomba menekülnek, hogy biztonságban legyenek.",
     ],
     [
-      `24. nap \nJézus születésének örömhíre \nA hírek terjednek Jézus születéséről, aki később a világ Megváltója lesz. Az emberek reménnyel és örömmel várják az ígéretes jövőt. \nÁldott, békés, boldog karácsonyt ${name}`,
+      `24. nap \nJézus születésének örömhíre \nA hírek terjednek Jézus születéséről, aki később a világ Megváltója lesz. Az emberek reménnyel és örömmel várják az ígéretes jövőt. \nÁldott, békés, boldog karácsonyt ${name}!`,
     ],
   ];
 
@@ -151,7 +151,7 @@ export default function App() {
       "18. nap \nLeif választása \nLeif nemet mond Loki ajánlatára, és kiáll a fény és az igazság mellett.",
     ],
     [
-      "19. nap \nA varázslat megszegése \nOdin mágiájával és Leif erejével sikerül feltörni az üvegszférát, és visszaszerezni a Yule Csillagot.",
+      "19. nap \nA varázslat megtörése \nOdin mágiájával és Leif erejével sikerül feltörni az üvegszférát, és visszaszerezni a Yule Csillagot.",
     ],
     [
       "20. nap \nA hazaút kezdete \nA Yule Csillag fényével az út sokkal könnyebbnek tűnik, de Loki bosszút esküszik.",
@@ -166,7 +166,7 @@ export default function App() {
       "23. nap \nAz istenek ajándéka \nOdin megjutalmazza Leifet a bátorságáért, és Freya egy különleges áldással illeti.",
     ],
     [
-      `24. nap \nA Yule-éjszaka ünnepe \nA falubeliek együtt ünneplik a Yule-t, immár a fény és a melegség örömében. Leif története példaképpé válik mindenki számára. \nBoldog Yule-t ${name}`,
+      `24. nap \nA Yule-éjszaka ünnepe \nA falubeliek együtt ünneplik a Yule-t, immár a fény és a melegség örömében. Leif története példaképpé válik mindenki számára. \nBoldog Yule-t ${name}!`,
     ],
   ];
 
