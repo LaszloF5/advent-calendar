@@ -1,9 +1,15 @@
 {
   "files": {
-    "main.css": "/advent-calendar/static/css/main.6db866c2.css",
-    "main.js": "/advent-calendar/static/js/main.d6503583.js",
+    "main.css": "/advent-calendar/static/css/main.bb733928.css",
+    "main.js": "/advent-calendar/static/js/main.b4ddd2a6.js",
     "static/js/453.caa0a741.chunk.js": "/advent-calendar/static/js/453.caa0a741.chunk.js",
+    "static/media/yule4.webp": "/advent-calendar/static/media/yule4.2bafe07b8bf8c383d7a0.webp",
+    "static/media/yule2.webp": "/advent-calendar/static/media/yule2.e0190d9675d42299f049.webp",
+    "static/media/yule5.webp": "/advent-calendar/static/media/yule5.43c6f28f31e321c96dea.webp",
     "static/media/cover1.webp": "/advent-calendar/static/media/cover1.a43cf911e63db6b04077.webp",
+    "static/media/yule3.webp": "/advent-calendar/static/media/yule3.31bafb8a24610af1b524.webp",
+    "static/media/yule1.webp": "/advent-calendar/static/media/yule1.d4e9f7811d685147f38c.webp",
+    "static/media/yule6.webp": "/advent-calendar/static/media/yule6.b6b9326d1ea277510e22.webp",
     "static/media/cover2.webp": "/advent-calendar/static/media/cover2.a06325ad9c0923547134.webp",
     "static/media/cover6.webp": "/advent-calendar/static/media/cover6.ef868f1b2c55bcc49f1f.webp",
     "static/media/cover3.webp": "/advent-calendar/static/media/cover3.d334b9da0135b3e444e8.webp",
@@ -11,12 +17,12 @@
     "static/media/cover4.webp": "/advent-calendar/static/media/cover4.355afeeed9388f4bda41.webp",
     "static/media/santa-hat.png": "/advent-calendar/static/media/santa-hat.7110136cbe6fbc29f6b1.png",
     "index.html": "/advent-calendar/index.html",
-    "main.6db866c2.css.map": "/advent-calendar/static/css/main.6db866c2.css.map",
-    "main.d6503583.js.map": "/advent-calendar/static/js/main.d6503583.js.map",
+    "main.bb733928.css.map": "/advent-calendar/static/css/main.bb733928.css.map",
+    "main.b4ddd2a6.js.map": "/advent-calendar/static/js/main.b4ddd2a6.js.map",
     "453.caa0a741.chunk.js.map": "/advent-calendar/static/js/453.caa0a741.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6db866c2.css",
-    "static/js/main.d6503583.js"
+    "static/css/main.bb733928.css",
+    "static/js/main.b4ddd2a6.js"
   ]
 }
