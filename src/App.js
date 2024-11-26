@@ -18,7 +18,7 @@ export default function App() {
   const [isBack, setIsBack] = useState(Array(itemNum).fill(false));
 
   const imgClasses = ["img1", "img2", "img3", "img4", "img5", "img6"];
-  const scandinavianImgClasses = ["img1", "img2", "img3"];
+  const scandinavianImgClasses = ["img1", "img2", "img3", "img4", "img5", "img6"];
 
   const story1 = [
     [
