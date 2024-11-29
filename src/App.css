@@ -10,6 +10,10 @@
   margin-top: 0;
 }
 
+.h3 {
+  margin: 5vh;
+}
+
 .btn-container {
   position: absolute;
   top: 10px;

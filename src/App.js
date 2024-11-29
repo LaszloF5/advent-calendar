@@ -337,6 +337,9 @@ export default function App() {
           {needName ? (
             <>
               <img className="santaHat2" src={santaHat} alt="Santa hat" />
+
+              {selectedStory === '' && name === '' ? <h3 className="h3">Add meg a neved, és válassz egy történetet!</h3> : ''}
+
               <form
                 onSubmit={handleName}
                 className="form-name"
